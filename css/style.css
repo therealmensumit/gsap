@@ -56,3 +56,7 @@
     background-clip: text;
     -webkit-text-stroke: 6px #fff;
 }
+
+#sumit span {
+    display: inline-block;
+}

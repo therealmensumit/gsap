@@ -31,13 +31,59 @@ if (screen.width > 768) {
       pin: true,
     },
   });
+
+  const text = document.getElementById("sumit");
+  const textContent = text.innerText;
+  const splitText = textContent.split("");
+
+  text.innerHTML = "";
+  const halfLength = splitText.length / 2;
+  splitText.forEach((e, i) => {
+    if (i < halfLength) {
+      text.innerHTML += `<span class="x">${e}</span>`;
+    } else {
+      text.innerHTML += `<span class="y">${e}</span>`;
+    }
+  });
+  gsap.from("#sumit span.x", {
+    x: 100,
+    y: 80,
+    scale: 2,
+    duration: 0.7,
+    delay: 0.3,
+    opacity: 0,
+    stagger: 0.3,
+    scrollTrigger: {
+      trigger: "#sumit",
+      start: "top 80%",
+      end: "top: 40%",
+      // markers: true,
+      scrub: true,
+    },
+  });
+  gsap.from("#sumit span.y", {
+    x: -100,
+    y: 80,
+    scale: 2,
+    duration: 0.7,
+    delay: 0.3,
+    opacity: 0,
+    stagger: -0.3,
+    scrollTrigger: {
+      trigger: "#sumit",
+      start: "top 80%",
+      end: "top: 40%",
+      // markers: true,
+      scrub: true,
+    },
+  });
+
   gsap.to("#about", {
     scale: 1,
     opacity: 1,
     scrollTrigger: {
       trigger: "#about",
       scroller: "body",
-      // markers: true,
       start: "top 80%",
       end: "top 30%",
       scrub: 1,
@@ -47,17 +93,10 @@ if (screen.width > 768) {
     x: "-200%",
     ease: "none",
     scrollTrigger: {
-      trigger: "#pin", // This will trigger when the #pin section is in view
-      start: "top top", // Animation starts when the top of the #pin hits the top of the viewport
-      // end: "+=300%", // Adjust based on the number of sections and scroll distance
-      scrub: 2, // This makes the animation scrub in sync with the scroll
-      pin: true, // This will pin the #pin container in place during the scroll animation
-      // anticipatePin: 1, // Optionally anticipates when the pin will be triggered
+      trigger: "#pin",
+      start: "top top",
+      scrub: 2,
+      pin: true,
     },
   });
 }
-
-/* const bow = document.getElementById("bow");
-bow.addEventListener("mousemove", (event) => {
-  console.log(event.x);
-}); */
