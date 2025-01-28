@@ -57,6 +57,11 @@
     -webkit-text-stroke: 6px #fff;
 }
 
+#reveal-text>*,
 #sumit span {
     display: inline-block;
+}
+
+#reveal-text>* {
+    opacity: .1;
 }
