@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+.mouse-pointer {
+    width: 10px;
+    height: 10px;
+    background-color: #ffc71c;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+}
+
 @media (min-width: 992px) {
     #demo>span {
         font-size: 3rem;

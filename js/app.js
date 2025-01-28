@@ -1,5 +1,15 @@
 // console.log(gsap);
 
+const mouse = document.querySelector(".mouse-pointer");
+document.addEventListener("mousemove", (e) => {
+  gsap.to(mouse, {
+    x: e.clientX,
+    y: e.clientY,
+    duration: 0.7,
+    ease: "power2.out",
+  });
+});
+
 gsap.registerPlugin(ScrollTrigger);
 const tl = gsap.timeline();
 
